@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.moven</groupId>
+		<artifactId>moven_parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>moven_self_parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<moven_common.version>0.0.1-SNAPSHOT</moven_common.version>
+
+		<moven_sso_api.version>0.0.1-SNAPSHOT</moven_sso_api.version>
+		<moven_sso_jar.version>0.0.1-SNAPSHOT</moven_sso_jar.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- common start -->
+			<dependency>
+				<groupId>com.moven</groupId>
+				<artifactId>moven_common</artifactId>
+				<version>${moven_common.version}</version>
+			</dependency>
+			<!-- common end -->
+			<!-- sso start -->
+			<dependency>
+				<groupId>com.moven</groupId>
+				<artifactId>moven_sso_api</artifactId>
+				<version>${moven_sso_api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.moven</groupId>
+				<artifactId>moven_sso_jar</artifactId>
+				<version>${moven_sso_jar.version}</version>
+			</dependency>
+			<!-- sso end -->
+		</dependencies>
+	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<project.environment>dev</project.environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<project.environment>test</project.environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<project.environment>prod</project.environment>
+			</properties>
+		</profile>
+	</profiles>
+
+
+</project>
